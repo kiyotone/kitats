@@ -1,0 +1,307 @@
+<Win_Name>:
+	got_name:name_input
+	Image:
+		source:root.re_img
+		size:self.texture_size
+	
+	Label:
+		text:'REGISTRATION'
+		bold:True
+		font_name:root.title_f
+		pos:(0,237)
+		font_size:28
+	
+	Label:
+		pos:(0,112)
+		font_size:29		
+		text:'Enter Full Name'
+
+	
+	TextInput:
+		id:name_input
+		multiline:False
+		focus:True
+		size_hint:(.27,.09)
+		pos:(292,312)
+		font_size:20	
+
+	Button:
+		pos:(337,206)
+		text:'Next'
+		size_hint:(.15,.09)
+		font_size:18
+		on_press:root.get_name()
+		on_release:root.manager.current='dob_s'
+
+
+
+<Win_DOB>:
+	got_year : year_input
+	got_month : month_input
+	got_day : day_input
+	
+	Image:
+		source:root.re_img
+		size:self.texture_size
+	
+	Label:
+		text:'REGISTRATION'
+		bold:True
+		font_name:root.title_f
+		pos:(0,237)
+		font_size:28
+	
+
+	Label:
+		pos:(0,175)
+		font_size:27
+		text:'Enter Date Of Birth'
+
+
+	Label:
+		pos:(58,124)
+		text:'Month:'		
+		font_size:26
+
+	Label:
+		pos:(-69,123)
+		text:'Year:'		
+		font_size:26
+
+	Label:		
+		pos:(-14,41)
+		text:'Day:'		
+		font_size:26
+
+	TextInput:
+		id:year_input
+		hint_text:'2004'
+		multiline:False
+		focus:True
+		size_hint:(.1,.07)
+		pos:(299,367)
+		font_size:20	
+
+	TextInput:
+		id:month_input
+		hint_text:'Jan'
+		multiline:False
+		focus:True
+		size_hint:(.1,.07)
+		pos:(419,367)
+		font_size:20	
+
+	TextInput:
+		id:day_input
+		hint_text:'1'
+		multiline:False
+		focus:True
+		size_hint:(.1,.07)
+		pos:(359,285)
+		font_size:20	
+
+	Button:		
+		pos:(337,206)
+		text:'Next'
+		size_hint:(.15,.09)
+		font_size:18
+		on_press:root.get_DOB()
+		on_release:root.manager.current='gender_s'
+	
+
+
+<Win_Gender>:
+	got_gender:''
+	Image:
+		source:root.re_img
+		size:self.texture_size
+	
+	Label:
+		text:'REGISTRATION'
+		bold:True
+		font_name:root.title_f
+		pos:(0,237)
+		font_size:28
+	
+	Label:
+		pos:(0,160)
+		font_size:29		
+		text:'Select Gender'
+
+	ToggleButton:
+		text:'Male'
+		group:'sex'
+		size_hint:(.11,.07)
+		pos:(300,370)
+		on_press:root.got_gender='male'
+
+	ToggleButton:
+		text:'Other'
+		group:'sex'
+		on_press:root.got_gender='other'
+		pos:(355,302)
+		size_hint:(.11,.07)
+
+	ToggleButton:
+		text:'Female'
+		group:'sex'
+		on_press:root.got_gender='female'
+		pos:(410,370)
+		size_hint:(.11,.07)
+
+	Button:		
+		pos:(337,206)
+		text:'Next'
+		size_hint:(.15,.09)
+		font_size:18
+		on_press:root.get_gender(root.get_gender)
+		on_release:root.manager.current='det'
+
+<Details>:
+	Image:
+		source:root.re_img
+		size:self.texture_size
+	
+	Label:
+		text:'REGISTRATION'
+		bold:True
+		font_name:root.title_f
+		pos:(0,237)
+		font_size:28
+	
+
+	Label:
+		text:root.text
+		text_size:self.size
+		pos:(297,309)		
+	
+	Button:
+		text:'Read'
+		size_hint:(.11,.06)
+		pos:(351,243)
+		font_size:20
+		background_color: 0, 0, 0, 0
+		on_press:root.get_data()
+
+	Button:
+		text:root.jj
+		on_press:root.manager.current='job_s'
+		size_hint:(.13,.07)
+		pos:(347,197)
+
+	
+<Win_Job>:
+	got_job:job_input	
+
+	Image:
+		source:root.re_img
+		size:self.texture_size
+	
+	Label:
+		text:'REGISTRATION'
+		bold:True
+		font_name:root.title_f
+		pos:(0,237)
+		font_size:28
+	
+	Label:
+		text:'Enter Job'
+		pos:(0,112)
+		font_size:29		
+
+		
+	TextInput:
+		id:job_input
+		multiline:False
+		focus:True
+		size_hint:(.27,.09)
+		pos:(292,312)
+		font_size:20	
+
+	Button:
+		pos:(337,206)
+		text:'Next'
+		size_hint:(.15,.09)
+		font_size:18
+		on_press:root.get_job()
+		on_release:root.manager.current="home_s"
+
+<Home_Screen>:
+	on_enter:root.gain_info()
+	Image:
+		source:root.main_img
+		size:self.texture_size
+
+	
+	Label:
+		text:'STATUS'
+		bold:True
+		font_name:root.title_f
+		pos:(350,525)
+		text_size:self.size
+		font_size:28
+		
+	Label:
+		text:'Name: '
+		bold:True
+		pos:(298,470)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f
+
+	Label:
+		text:root.nam_e
+		bold:True
+		pos:(347,470)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f
+	
+	Label:
+		text:'Age: '
+		bold:True
+		pos:(298,430)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f
+
+	Label:
+		text:root.age
+		bold:True
+		pos:(335,430)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f
+	
+
+	Label:
+		text:'Gender: '
+		bold:True
+		pos:(425,430)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f	
+
+	Label:
+		text:root.gender
+		bold:True
+		pos:(491,430)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f	
+	
+	Label:
+		text:'Job: '
+		bold:True
+		pos:(298,390)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f	
+
+	Label:
+		text:root.job
+		bold:True
+		pos:(331,390)
+		font_size:root.fo_siz
+		text_size:self.size
+		font_name:root.norm_f	
